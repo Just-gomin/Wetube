@@ -7,8 +7,17 @@ const handleListening = () => {
   console.log(`Listening on: http://localhost:${PORT}`);
 };
 
-app.listen(PORT, handleListening);
+const handleHome = (req, res) => {
+  console.log(req);
+  res.send("Hi, from Home");
+};
 
-app.get("/", function (req, res) {
-  res.send("hello world");
-});
+const handleProfile = (req, res) => {
+  res.send("You're in my profile");
+};
+
+app.get("/", handleHome);
+
+app.get("/profile", handleProfile);
+
+app.listen(PORT, handleListening);
