@@ -11,7 +11,7 @@ const LOGIN = "/login";
 const LOGOUT = "/logout";
 const SEARCH = "/search";
 
-// USers
+// Users
 const USERS = "/users";
 const USER_DETAIL = "/:id";
 const EDIT_PROFILE = "/edit-profile";
@@ -31,14 +31,14 @@ const routes = {
   logout: LOGOUT,
   search: SEARCH,
   users: USERS,
-  user_detail: USER_DETAIL,
-  edit_profile: EDIT_PROFILE,
-  change_password: CHANGE_PASSWORD,
+  userDetail: USER_DETAIL,
+  editProfile: EDIT_PROFILE,
+  changePassword: CHANGE_PASSWORD,
   videos: VIDEOS,
   upload: UPLOAD,
-  video_detail: VIDEO_DETAIL,
-  edit_video: EDIT_VIDEO,
-  delete_video: DELETE_VIDEO,
+  videoDetail: VIDEO_DETAIL,
+  editVideo: EDIT_VIDEO,
+  deleteVideo: DELETE_VIDEO,
 };
 
 export default routes;
