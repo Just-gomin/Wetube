@@ -4,13 +4,9 @@ import helmet from "helmet"; // NodeJS의 보안을 높여주는 middleware
 import cookieParser from "cookie-parser"; // 쿠키 분석을 위한 middlewaare
 import bodyParser from "body-parser"; // 요청의 본문을 분석하기 위한 middleware
 
+import { userRouter } from "./router";
+
 const app = express();
-
-const PORT = 4000;
-
-const handleListening = () => {
-  console.log(`Listening on: http://localhost:${PORT}`);
-};
 
 const handleHome = (req, res) => {
   res.send("Hi, from Home");
@@ -29,4 +25,6 @@ app.use(morgan("dev"));
 app.get("/", handleHome);
 app.get("/profile", handleProfile);
 
-app.listen(PORT, handleListening);
+app.use("/user", userRouter);
+
+export default app;
