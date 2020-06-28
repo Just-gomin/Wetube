@@ -1,3 +1,7 @@
+/* 
+  routes에 따른 User Controllers
+*/
+
 export const join = (req, res) => {
   return res.render("join");
 };

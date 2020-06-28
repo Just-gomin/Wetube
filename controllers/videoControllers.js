@@ -1,3 +1,7 @@
+/* 
+  routes에 따른 Video Controllers
+*/
+
 export const home = (req, res) => {
   return res.render("home");
 };
