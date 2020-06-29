@@ -7,7 +7,13 @@ export const home = (req, res) => {
 };
 
 export const search = (req, res) => {
-  return res.render("search", { pageTitle: "Search" });
+  const {
+    query: { term: searchingBy },
+  } = req;
+  return res.render("search", {
+    pageTitle: "Search",
+    searchingBy,
+  });
 };
 
 export const upload = (req, res) => {
