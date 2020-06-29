@@ -4,7 +4,8 @@ export const videos = [
     title: "Video Awesome",
     description: "This is amaging video",
     views: 24,
-    videoFile: "https://archive.org/details/BigBuckBunny_124",
+    videoFile:
+      "https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4",
     creator: {
       id: 12345,
       name: "King",
@@ -16,7 +17,8 @@ export const videos = [
     title: "Video Super",
     description: "This is super video",
     views: 24,
-    videoFile: "https://archive.org/download/ElephantsDream/ed_hd.avi",
+    videoFile:
+      "https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4",
     creator: {
       id: 12345,
       name: "King",
@@ -28,7 +30,8 @@ export const videos = [
     title: "Video Awesome Crazy",
     description: "This is powerful video",
     views: 24,
-    videoFile: "https://archive.org/details/BigBuckBunny_124",
+    videoFile:
+      "https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4",
     creator: {
       id: 12345,
       name: "King",
@@ -40,7 +43,8 @@ export const videos = [
     title: "Video Super Crazy",
     description: "This is popular video",
     views: 24,
-    videoFile: "https://archive.org/download/ElephantsDream/ed_hd.avi",
+    videoFile:
+      "https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4",
     creator: {
       id: 12345,
       name: "King",
