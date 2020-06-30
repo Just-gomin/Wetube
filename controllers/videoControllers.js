@@ -3,6 +3,7 @@
 */
 
 import { videos } from "../db";
+import routes from "../routes";
 
 export const home = (req, res) => {
   return res.render("home", { pageTitle: "Home", videos });
@@ -19,8 +20,16 @@ export const search = (req, res) => {
   });
 };
 
-export const upload = (req, res) => {
+export const getUpload = (req, res) => {
   return res.render("upload", { pageTitle: "Upload" });
+};
+
+export const postUpload = (req, res) => {
+  const {
+    body: { file, title, desription },
+  } = req;
+  // To Do : Upload and Save Video
+  res.redirect(routes.videoDetail(23423));
 };
 
 export const videoDetail = (req, res) => {
