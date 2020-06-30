@@ -1,3 +1,9 @@
+/*
+    서비스의 중심부.
+
+    express서버에 대한 설정파일이다.
+*/
+
 import express from "express";
 
 // middlewares

@@ -1,3 +1,7 @@
+/*
+  Template에서 변수들을 사용하기 위한 파일.
+*/
+
 import routes from "./routes";
 
 export const localsMiddleware = (req, res, next) => {
