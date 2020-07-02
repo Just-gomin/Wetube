@@ -118,4 +118,4 @@ dist
 # Individually ignore files
 package-lock.json
 LectureNote.md
-videos
+uploads

@@ -31,10 +31,10 @@ app.set("view engine", "pug"); // View Engine을 pug로 설정
 
 // middlewares 사용
 app.use(cookieParser());
+app.use("/uploads", express.static("uploads")); // 주어진 Directory에서 파일을 보내주는 middleware.
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan("dev"));
-
 app.use(localsMiddleware);
 
 // routers 사용
