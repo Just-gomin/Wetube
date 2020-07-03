@@ -17,13 +17,23 @@ export const home = async (req, res) => {
 };
 
 // Search
-export const search = (req, res) => {
+export const search = async (req, res) => {
   const {
     query: { term: searchingBy },
   } = req;
+  let videos = [];
+  try {
+    // Regular Expression을 이용해 해당 단어를 포함한 영상들을 검색
+    videos = await Video.find({
+      title: { $regex: searchingBy, $options: "i" },
+    });
+  } catch (error) {
+    console.log(error);
+  }
   res.render("search", {
     pageTitle: "Search",
     searchingBy,
+    videos,
   });
 };
 
