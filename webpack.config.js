@@ -7,10 +7,19 @@ const ENTRY_FILE = path.resolve(__dirname, "assets", "js", "main.js");
 const OUTPUT_DIR = path.join(__dirname, "static");
 
 const config = {
-  entry: ENTRY_FILE,
+  entry: ["@babel/polyfill", ENTRY_FILE],
   mode: MODE,
   module: {
     rules: [
+      {
+        test: /\.(js)$/,
+        use: [
+          {
+            // js 파일을 가져와 구식의 문법으로 변환
+            loader: "babel-loader",
+          },
+        ],
+      },
       {
         test: /\.(scss)$/,
         // ExtractCSS는 CSS에서 텍스트만을 추출한다.
@@ -23,7 +32,7 @@ const config = {
             // postcss-loader는 특정 플러그인들을 css에 대해 실행시켜준다.
             loader: "postcss-loader",
             options: {
-              plugin() {
+              plugins() {
                 return [autoprefixer({ browsers: "cover 99.5%" })];
               },
             },
