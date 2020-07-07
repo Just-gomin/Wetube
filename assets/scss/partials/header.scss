@@ -1,0 +1,63 @@
+@import url("https://fonts.googleapis.com/css2?family=Gugi&display=swap");
+
+.header {
+  background-color: white;
+  margin-bottom: 50px;
+  .header__wrapper {
+    padding: 5px 0px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    .header__column {
+      display: flex;
+      justify-content: center;
+      a {
+        text-decoration: none;
+        color: $black;
+        i {
+          color: $red;
+          font-size: 30px;
+        }
+        .header__text {
+          margin-left: 5px;
+          margin-bottom: 5px;
+          font-family: "Gugi", cursive;
+          font-size: 30px;
+          font-weight: 600;
+          letter-spacing: -2px;
+        }
+      }
+      &:nth-child(2) {
+        width: 100%;
+        justify-self: center;
+      }
+      &:last-child {
+        justify-self: end;
+      }
+      ul {
+        display: flex;
+        font-weight: 600;
+        text-transform: uppercase;
+        li {
+          margin-right: 15px;
+        }
+      }
+      form {
+        width: 100%;
+        outline: solid 1px;
+        outline-color: rgba($color: #000000, $alpha: 0.3);
+        input {
+          padding: 5px 10px;
+          width: 100%;
+          font-size: 15px;
+          &::placeholder {
+            font-weight: 300;
+          }
+        }
+      }
+    }
+  }
+}
