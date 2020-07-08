@@ -146,7 +146,7 @@ body {
 
 body {
   background-color: #f9f9f9;
-  color: #444444;
+  color: #000000;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 14px; }
 
@@ -154,11 +154,11 @@ main {
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
+  margin-top: 40px;
   min-height: 70vh; }
 
 .header {
-  background-color: white;
-  margin-bottom: 50px; }
+  background-color: white; }
   .header .header__wrapper {
     padding: 5px 0px;
     width: 100%;
@@ -184,7 +184,7 @@ main {
               justify-content: center; }
       .header .header__wrapper .header__column a {
         text-decoration: none;
-        color: #444444; }
+        color: #000000; }
         .header .header__wrapper .header__column a i {
           color: #ff0000;
           font-size: 30px; }
@@ -230,3 +230,173 @@ main {
             font-weight: 300; }
           .header .header__wrapper .header__column form input::placeholder {
             font-weight: 300; }
+
+.footer {
+  margin-top: 40px;
+  padding-top: 15px;
+  padding-bottom: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+     -moz-box-orient: vertical;
+     -moz-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  .footer .footer__icon {
+    color: rgba(0, 0, 0, 0.45);
+    font-size: 35px;
+    margin-bottom: 15px; }
+  .footer .footer__text {
+    color: rgba(0, 0, 0, 0.45);
+    text-transform: uppercase;
+    font-weight: 600; }
+
+.form-container {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+     -moz-box-orient: vertical;
+     -moz-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  .form-container form {
+    width: 100%;
+    max-width: 320px;
+    background-color: white;
+    -webkit-border-radius: 10px;
+       -moz-border-radius: 10px;
+            border-radius: 10px;
+    padding: 30px 20px; }
+    .form-container form input {
+      display: block;
+      background-color: white;
+      width: 100%;
+      font-size: 15px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 5px;
+      border-bottom: 1px solid #e5e5e5;
+      color: #000000; }
+      .form-container form input:not(:last-child) {
+        margin-bottom: 25px; }
+      .form-container form input::-webkit-input-placeholder {
+        margin-left: 4px; }
+      .form-container form input:-moz-placeholder {
+        margin-left: 4px; }
+      .form-container form input::-moz-placeholder {
+        margin-left: 4px; }
+      .form-container form input:-ms-input-placeholder {
+        margin-left: 4px; }
+      .form-container form input::-ms-input-placeholder {
+        margin-left: 4px; }
+      .form-container form input::placeholder {
+        margin-left: 4px; }
+      .form-container form input:focus-within {
+        outline: 1px solid #ff0000; }
+      .form-container form input:hover {
+        border-bottom: 1px solid #ff0000; }
+    .form-container form input[type="submit"] {
+      -webkit-border-radius: 10px;
+         -moz-border-radius: 10px;
+              border-radius: 10px;
+      border: 2px solid #f22c2c;
+      background-color: white;
+      font-weight: 600;
+      color: #f22c2c;
+      -webkit-box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.1);
+         -moz-box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.1);
+              box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.1); }
+      .form-container form input[type="submit"]:hover {
+        background-color: #f22c2c;
+        color: white; }
+
+.social-login {
+  margin-top: 20px;
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+     -moz-box-orient: vertical;
+     -moz-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  .social-login button {
+    width: 100%;
+    max-width: 230px;
+    height: 35px;
+    padding: 5px 10px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+       -moz-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+       -moz-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-border-radius: 10px;
+       -moz-border-radius: 10px;
+            border-radius: 10px;
+    -webkit-box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.15);
+       -moz-box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.15);
+            box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.15);
+    font-weight: 600; }
+    .social-login button:not(:last-child) {
+      margin-bottom: 15px; }
+    .social-login button i {
+      margin-right: 5px;
+      font-size: 25px; }
+  .social-login .social-login--github {
+    border: 1px solid #000000;
+    background-color: white;
+    color: #000000; }
+    .social-login .social-login--github:hover {
+      background-color: #000000;
+      color: white; }
+  .social-login .social-login--facebook {
+    border: 1px solid #3a579b;
+    background-color: white;
+    color: #3a579b; }
+    .social-login .social-login--facebook:hover {
+      background-color: #3a579b;
+      color: white; }
