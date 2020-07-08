@@ -1,7 +1,11 @@
 $red: #ff0000;
 $dark-red: #f22c2c;
 $grey: #757575;
-$light-grey: #e5e5e5;
+$light-grey: rgba(
+  $color: #000000,
+  $alpha: 0.3,
+);
 $black: #000000;
 $background: #f9f9f9;
 $facebook-blue: #3a579b;
+$comfort-blue: #396ec4;
