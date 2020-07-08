@@ -1,0 +1,26 @@
+.videoBlock {
+  &:hover {
+    box-shadow: 0 4px 8px 0 $light-grey;
+  }
+  a {
+    text-decoration: none;
+    color: $black;
+    video {
+      max-width: 100%;
+    }
+    .videoBlock__info {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 10px 10px 10px;
+
+      .videoBlock__title {
+        font-size: 20px;
+        font-weight: 600;
+      }
+      .videoBlock__views {
+        padding-top: 5px;
+        font-size: 15px;
+      }
+    }
+  }
+}

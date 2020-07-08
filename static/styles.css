@@ -153,7 +153,7 @@ body {
 
 main {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
   margin-top: 40px;
   min-height: 70vh; }
@@ -401,6 +401,40 @@ main {
     .social-login .social-login--facebook:hover {
       background-color: #3a579b;
       color: white; }
+
+.videoBlock:hover {
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+     -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3); }
+
+.videoBlock a {
+  text-decoration: none;
+  color: #000000; }
+  .videoBlock a video {
+    max-width: 100%; }
+  .videoBlock a .videoBlock__info {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+       -moz-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding: 10px 10px 10px 10px; }
+    .videoBlock a .videoBlock__info .videoBlock__title {
+      font-size: 20px;
+      font-weight: 600; }
+    .videoBlock a .videoBlock__info .videoBlock__views {
+      padding-top: 5px;
+      font-size: 15px; }
+
+.home-videos {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(200px, 1fr));
+  grid-gap: 20px; }
 
 .video-detail__container {
   width: 100%;
