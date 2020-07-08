@@ -546,3 +546,30 @@ main {
   .video-detail__container .video__comments {
     margin: 20px 10px 20px 10px;
     font-size: 20px; }
+
+.form-container textarea {
+  width: 100%;
+  height: 250px;
+  resize: vertical;
+  margin-bottom: 10px;
+  font-size: 15px;
+  border: none; }
+
+.form-container__link {
+  margin-top: 15px; }
+  .form-container__link button.delete {
+    padding: 10px 20px 10px 20px;
+    border: 2px solid #000000;
+    -webkit-border-radius: 10px;
+       -moz-border-radius: 10px;
+            border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #000000;
+    background-color: #f9f9f9;
+    -webkit-box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.1);
+       -moz-box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.1); }
+    .form-container__link button.delete:hover {
+      color: white;
+      background-color: #000000; }
