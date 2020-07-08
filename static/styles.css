@@ -436,6 +436,12 @@ main {
   grid-template-columns: repeat(4, minmax(200px, 1fr));
   grid-gap: 20px; }
 
+@media screen and (max-width: 900px) {
+  .home-videos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+    grid-gap: 20px; } }
+
 .video-detail__container {
   width: 100%;
   display: -webkit-box;
@@ -573,3 +579,24 @@ main {
     .form-container__link button.delete:hover {
       color: white;
       background-color: #000000; }
+
+.fileUpload {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+     -moz-box-orient: horizontal;
+     -moz-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row; }
+  .fileUpload label {
+    width: 60%;
+    font-weight: 500;
+    font-size: 15px;
+    color: #757575;
+    padding: 20px 5px 10px 5px; }

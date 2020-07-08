@@ -1,0 +1,12 @@
+.fileUpload {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  label {
+    width: 60%;
+    font-weight: 500;
+    font-size: 15px;
+    color: $grey;
+    padding: 20px 5px 10px 5px;
+  }
+}
