@@ -11,11 +11,13 @@ import morgan from "morgan"; // 모든 연결에 대한 로그를 남겨주는 m
 import helmet from "helmet"; // NodeJS의 보안을 높여주는 middleware
 import cookieParser from "cookie-parser"; // 쿠키 분석을 위한 middlewaare
 import bodyParser from "body-parser"; // 요청의 본문을 분석하기 위한 middleware
-import { localsMiddleware } from "./middlewares"; // 사용자 정의 middlewares
+import session from "express-session";
 import passport from "passport"; // 사용자 인증을 위한 middleware
 import "./passport"; // passport middleware에 대한 strategies 모음
 
+import { localsMiddleware } from "./middlewares"; // 사용자 정의 middlewares
 // Routers
+
 import globalRouter from "./routers/globalRouter";
 import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
@@ -38,6 +40,13 @@ app.use("/static", express.static("static"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan("dev"));
+app.use(
+  session({
+    secret: `${process.env.COOKIE_SECRET}`,
+    resave: false,
+    saveUninitialized: true,
+  })
+);
 app.use(passport.initialize());
 app.use(passport.session());
 
