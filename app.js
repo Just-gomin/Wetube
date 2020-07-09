@@ -12,6 +12,8 @@ import helmet from "helmet"; // NodeJS의 보안을 높여주는 middleware
 import cookieParser from "cookie-parser"; // 쿠키 분석을 위한 middlewaare
 import bodyParser from "body-parser"; // 요청의 본문을 분석하기 위한 middleware
 import session from "express-session";
+import mongoose from "mongoose";
+import MongoStore from "connect-mongo"; // session을 mongoDB에 저장하기 위한 패키지
 import passport from "passport"; // 사용자 인증을 위한 middleware
 import "./passport"; // passport middleware에 대한 strategies 모음
 
@@ -26,6 +28,7 @@ import videoRouter from "./routers/videoRouter";
 import routes from "./routes";
 
 const app = express();
+const CookieStore = MongoStore(session);
 
 // app의 보안을 향상 시켜줄 middleware
 app.use(helmet());
@@ -45,6 +48,10 @@ app.use(
     secret: `${process.env.COOKIE_SECRET}`,
     resave: false,
     saveUninitialized: true,
+    store: new CookieStore({
+      mongooseConnection: mongoose.connection,
+      collection: "sessions",
+    }),
   })
 );
 app.use(passport.initialize());
