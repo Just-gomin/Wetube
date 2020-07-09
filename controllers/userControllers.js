@@ -2,6 +2,8 @@
   routes에 따른 User Controllers
 */
 
+import passport from "passport";
+
 import routes from "../routes";
 import User from "../models/User";
 
@@ -9,7 +11,7 @@ export const getJoin = (req, res) => {
   return res.render("join", { pageTitle: "Join" });
 };
 
-export const postJoin = async (req, res) => {
+export const postJoin = async (req, res, next) => {
   const {
     body: { name, email, password, password2 },
   } = req;
@@ -23,11 +25,11 @@ export const postJoin = async (req, res) => {
         email,
       });
       await User.register(user, password);
+      next();
     } catch (error) {
       console.log(error);
+      res.redirect(routes.home);
     }
-    // To Do : Log User In
-    res.redirect(routes.home);
   }
 };
 
@@ -35,10 +37,10 @@ export const getLogin = (req, res) => {
   return res.render("login", { pageTitle: "Login" });
 };
 
-export const postLogin = (req, res) => {
-  // To Do : Check User In DB
-  res.redirect(routes.home);
-};
+export const postLogin = passport.authenticate("local", {
+  failureRedirect: routes.login,
+  successRedirect: routes.home,
+});
 
 export const logout = (req, res) => {
   // To Do : Process Logout
