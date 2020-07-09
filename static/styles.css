@@ -359,12 +359,12 @@ main {
     width: 100%;
     max-width: 230px;
     height: 35px;
-    padding: 5px 10px;
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
     display: -ms-flexbox;
     display: flex;
+    padding: 0px 0px 0px 0px;
     -webkit-box-align: center;
     -webkit-align-items: center;
        -moz-box-align: center;
@@ -381,26 +381,53 @@ main {
     -webkit-box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.15);
        -moz-box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.15);
             box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.15);
-    font-weight: 600; }
+    font-weight: 600;
+    outline: none; }
     .social-login button:not(:last-child) {
       margin-bottom: 15px; }
-    .social-login button i {
-      margin-right: 5px;
-      font-size: 25px; }
+    .social-login button a {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: row;
+         -moz-box-orient: horizontal;
+         -moz-box-direction: normal;
+          -ms-flex-direction: row;
+              flex-direction: row;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+         -moz-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      width: 100%; }
+      .social-login button a i {
+        margin-right: 5px;
+        font-size: 25px; }
+      .social-login button a .social-login__button__text {
+        margin-top: 5px;
+        font-size: 15px; }
   .social-login .social-login--github {
-    border: 1px solid #000000;
-    background-color: white;
-    color: #000000; }
+    border: 2px solid #000000;
+    background-color: white; }
+    .social-login .social-login--github a {
+      color: #000000; }
+      .social-login .social-login--github a:hover {
+        color: white; }
     .social-login .social-login--github:hover {
-      background-color: #000000;
-      color: white; }
+      background-color: #000000; }
   .social-login .social-login--facebook {
-    border: 1px solid #3a579b;
-    background-color: white;
-    color: #3a579b; }
+    border: 2px solid #3a579b;
+    background-color: white; }
+    .social-login .social-login--facebook a {
+      color: #3a579b; }
+      .social-login .social-login--facebook a:hover {
+        color: white; }
     .social-login .social-login--facebook:hover {
-      background-color: #3a579b;
-      color: white; }
+      background-color: #3a579b; }
 
 .videoBlock:hover {
   -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);

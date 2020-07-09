@@ -3,6 +3,7 @@ import GitHubStrategy from "passport-github";
 import dotenv from "dotenv";
 import User from "./models/User";
 import { githubLoginCallback } from "./controllers/userControllers";
+import routes from "./routes";
 dotenv.config();
 
 passport.use(User.createStrategy());
@@ -12,7 +13,7 @@ passport.use(
     {
       clientID: process.env.GITHUB_CLIENT_ID,
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
-      callbackURL: "http://localhost:4000/github/callback",
+      callbackURL: `http://localhost:4000${routes.gitHubCallback}`,
     },
     githubLoginCallback
   )
