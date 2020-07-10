@@ -9,6 +9,7 @@ import { home, search } from "../controllers/videoControllers";
 import {
   getJoin,
   getLogin,
+  getMe,
   logout,
   postJoin,
   postLogin,
@@ -28,6 +29,8 @@ globalRouter.post(routes.join, postJoin, onlyPublic, postLogin);
 globalRouter.get(routes.login, onlyPublic, getLogin);
 globalRouter.post(routes.login, onlyPublic, postLogin);
 globalRouter.get(routes.logout, onlyPrivate, logout);
+
+globalRouter.get(routes.me, onlyPrivate, getMe);
 
 globalRouter.get(routes.gitHub, githubLogin);
 globalRouter.get(
