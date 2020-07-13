@@ -79,13 +79,33 @@ export const postGitHubLogin = (req, res) => {
 
 export const FacebookLogin = passport.authenticate("facebook");
 
-export const FacebookLoginCallback = (
+export const FacebookLoginCallback = async (
   accessToken,
   refreshToken,
   profile,
   cb
 ) => {
-  console.log(accessToken, refreshToken, profile, cb);
+  const {
+    _json: { id, name, email },
+  } = profile;
+  try {
+    const user = await User.findOne({ email });
+    if (user) {
+      user.githubId = id;
+      user.save();
+      return cb(null, user);
+    } else {
+      const newUser = await User.create({
+        email,
+        name,
+        facebookId: id,
+        avatarUrl: `https://graph.facebook.com/${id}/picture?type=large`,
+      });
+      return cb(null, newUser);
+    }
+  } catch (error) {
+    return cb(error);
+  }
 };
 
 export const postFacebookLogin = (req, res) => res.redirect(routes.home);
