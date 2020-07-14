@@ -95,6 +95,7 @@ export const kakaoLoginCallback = async (
   } = kakao_profile;
   try {
     const user = await User.findOne({ email });
+    console.log(nickname, profile);
     if (user) {
       user.kakaoId = id;
       user.save();
@@ -171,8 +172,25 @@ export const userDetail = async (req, res) => {
   }
 };
 
-export const editProfile = (req, res) => {
+export const getEditProfile = (req, res) => {
   return res.render("editProfile", { pageTitle: "Edit Profile" });
+};
+
+export const postEditProfile = async (req, res) => {
+  const {
+    body: { name, email },
+    file,
+  } = req;
+  try {
+    await User.findByIdAndUpdate(req.user.id, {
+      name,
+      email,
+      avatarUrl: file ? file.path : req.user.avatarUrl,
+    });
+    res.redirect(routes.me);
+  } catch (error) {
+    res.redirect("editProfile", { pageTitle: "Edit Profile" });
+  }
 };
 
 export const changePassword = (req, res) => {
