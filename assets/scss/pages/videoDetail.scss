@@ -30,6 +30,22 @@
       flex-direction: row;
       justify-content: space-between;
       border-bottom: 1px solid $light-grey;
+      .info--header__main {
+        display: flex;
+        flex-direction: column;
+        .video__author {
+          display: flex;
+          padding: 0px 0px 5px 2px;
+          margin-bottom: 5px;
+          font-size: 15px;
+          font-weight: 500;
+          a {
+            margin-left: 5px;
+            font-weight: 600;
+            color: $comfort-blue;
+          }
+        }
+      }
       .video__title {
         all: unset;
         padding: 5px 0px 5px 0px;
@@ -39,6 +55,7 @@
       }
       .video__editBtn {
         margin-bottom: 10px;
+        height: 40px;
       }
     }
     .video__views {
