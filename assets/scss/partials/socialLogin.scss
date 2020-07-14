@@ -60,4 +60,14 @@
       background-color: $facebook-blue;
     }
   }
+  .social-login--kakao {
+    border: 2px solid $kakao-yellow;
+    background-color: white;
+    a {
+      color: $kakao-black;
+    }
+    &:hover {
+      background-color: $kakao-yellow;
+    }
+  }
 }

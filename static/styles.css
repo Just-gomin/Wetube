@@ -428,6 +428,13 @@ main {
         color: white; }
     .social-login .social-login--facebook:hover {
       background-color: #3a579b; }
+  .social-login .social-login--kakao {
+    border: 2px solid #fee500;
+    background-color: white; }
+    .social-login .social-login--kakao a {
+      color: #181600; }
+    .social-login .social-login--kakao:hover {
+      background-color: #fee500; }
 
 .videoBlock:hover {
   -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
