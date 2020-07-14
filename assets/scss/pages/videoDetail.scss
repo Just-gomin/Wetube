@@ -37,24 +37,8 @@
         font-size: 30px;
         font-weight: 600;
       }
-      a {
+      .video__editBtn {
         margin-bottom: 10px;
-        display: flex;
-        justify-self: flex-end;
-        button {
-          all: unset;
-          padding-right: 15px;
-          display: block;
-          padding: 10px 10px 10px 10px;
-          border: 1px solid $comfort-blue;
-          border-radius: 10px;
-          color: $comfort-blue;
-          font-weight: 600;
-          &:hover {
-            background-color: $comfort-blue;
-            color: white;
-          }
-        }
       }
     }
     .video__views {

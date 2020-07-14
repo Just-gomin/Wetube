@@ -46,4 +46,11 @@
       }
     }
   }
+  .form-container__link {
+    font-weight: 600;
+    color: $comfort-blue;
+    &:hover {
+      color: $comfort-red;
+    }
+  }
 }

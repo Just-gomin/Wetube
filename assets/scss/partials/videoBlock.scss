@@ -3,6 +3,8 @@
     box-shadow: 0 4px 8px 0 $light-grey;
   }
   a {
+    display: flex;
+    flex-direction: column;
     text-decoration: none;
     color: $black;
     video {
@@ -10,6 +12,7 @@
     }
     .videoBlock__info {
       display: flex;
+      flex-direction: row;
       justify-content: space-between;
       padding: 10px 10px 10px 10px;
 

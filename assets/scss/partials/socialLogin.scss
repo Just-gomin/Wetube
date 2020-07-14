@@ -39,12 +39,13 @@
     background-color: white;
     a {
       color: $black;
-      &:hover {
-        color: white;
-      }
+      margin-bottom: 0;
     }
     &:hover {
       background-color: $black;
+      a {
+        color: white;
+      }
     }
   }
   .social-login--facebook {
@@ -52,12 +53,13 @@
     background-color: white;
     a {
       color: $facebook-blue;
-      &:hover {
-        color: white;
-      }
+      margin-bottom: 0;
     }
     &:hover {
       background-color: $facebook-blue;
+      a {
+        color: white;
+      }
     }
   }
   .social-login--kakao {
@@ -65,6 +67,7 @@
     background-color: white;
     a {
       color: $kakao-black;
+      margin-bottom: 0;
     }
     &:hover {
       background-color: $kakao-yellow;

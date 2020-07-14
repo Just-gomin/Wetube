@@ -140,13 +140,19 @@ input {
   input:focus, input:active {
     outline: none; }
 
+.profile__avatar {
+  height: 80px;
+  -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+          border-radius: 50%; }
+
 html,
 body {
   height: 100%; }
 
 body {
   background-color: #f9f9f9;
-  color: #000000;
+  color: #343434;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 14px;
   min-width: 470px; }
@@ -157,6 +163,28 @@ main {
   margin: 0 auto;
   margin-top: 40px;
   min-height: 70vh; }
+
+a {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-self: flex-end; }
+  a button {
+    all: unset;
+    padding-right: 15px;
+    display: block;
+    padding: 10px 10px 10px 10px;
+    border: 2px solid #396ec4;
+    -webkit-border-radius: 10px;
+       -moz-border-radius: 10px;
+            border-radius: 10px;
+    color: #396ec4;
+    font-weight: 600; }
+    a button:hover {
+      background-color: #396ec4;
+      color: white; }
 
 .header {
   background-color: white; }
@@ -185,7 +213,7 @@ main {
               justify-content: center; }
       .header .header__wrapper .header__column a {
         text-decoration: none;
-        color: #000000; }
+        color: #343434; }
         .header .header__wrapper .header__column a i {
           color: #ff0000;
           font-size: 30px; }
@@ -301,7 +329,7 @@ main {
       padding-bottom: 10px;
       padding-left: 5px;
       border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-      color: #000000; }
+      color: #343434; }
       .form-container form input:not(:last-child) {
         margin-bottom: 25px; }
       .form-container form input::-webkit-input-placeholder {
@@ -334,6 +362,11 @@ main {
       .form-container form input[type="submit"]:hover {
         background-color: #f22c2c;
         color: white; }
+  .form-container .form-container__link {
+    font-weight: 600;
+    color: #396ec4; }
+    .form-container .form-container__link:hover {
+      color: #eb4a39; }
 
 .social-login {
   margin-top: 20px;
@@ -411,30 +444,33 @@ main {
         margin-top: 5px;
         font-size: 15px; }
   .social-login .social-login--github {
-    border: 2px solid #000000;
+    border: 2px solid #343434;
     background-color: white; }
     .social-login .social-login--github a {
-      color: #000000; }
-      .social-login .social-login--github a:hover {
-        color: white; }
+      color: #343434;
+      margin-bottom: 0; }
     .social-login .social-login--github:hover {
-      background-color: #000000; }
+      background-color: #343434; }
+      .social-login .social-login--github:hover a {
+        color: white; }
   .social-login .social-login--facebook {
     border: 2px solid #3a579b;
     background-color: white; }
     .social-login .social-login--facebook a {
-      color: #3a579b; }
-      .social-login .social-login--facebook a:hover {
-        color: white; }
+      color: #3a579b;
+      margin-bottom: 0; }
     .social-login .social-login--facebook:hover {
       background-color: #3a579b; }
+      .social-login .social-login--facebook:hover a {
+        color: white; }
   .social-login .social-login--kakao {
-    border: 2px solid #fee500;
+    border: 2px solid #ffdd00;
     background-color: white; }
     .social-login .social-login--kakao a {
-      color: #181600; }
+      color: #181600;
+      margin-bottom: 0; }
     .social-login .social-login--kakao:hover {
-      background-color: #fee500; }
+      background-color: #ffdd00; }
 
 .videoBlock:hover {
   -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
@@ -442,8 +478,20 @@ main {
           box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3); }
 
 .videoBlock a {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+     -moz-box-orient: vertical;
+     -moz-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   text-decoration: none;
-  color: #000000; }
+  color: #343434; }
   .videoBlock a video {
     max-width: 100%; }
   .videoBlock a .videoBlock__info {
@@ -452,6 +500,13 @@ main {
     display: -moz-box;
     display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+       -moz-box-orient: horizontal;
+       -moz-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
     -webkit-box-pack: justify;
     -webkit-justify-content: space-between;
        -moz-box-pack: justify;
@@ -555,28 +610,8 @@ main {
         margin-bottom: 5px;
         font-size: 30px;
         font-weight: 600; }
-      .video-detail__container .video__info .info--header a {
-        margin-bottom: 10px;
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: flex;
-        justify-self: flex-end; }
-        .video-detail__container .video__info .info--header a button {
-          all: unset;
-          padding-right: 15px;
-          display: block;
-          padding: 10px 10px 10px 10px;
-          border: 1px solid #396ec4;
-          -webkit-border-radius: 10px;
-             -moz-border-radius: 10px;
-                  border-radius: 10px;
-          color: #396ec4;
-          font-weight: 600; }
-          .video-detail__container .video__info .info--header a button:hover {
-            background-color: #396ec4;
-            color: white; }
+      .video-detail__container .video__info .info--header .video__editBtn {
+        margin-bottom: 10px; }
     .video-detail__container .video__info .video__views {
       margin: 0px 10px 10px 15px;
       font-size: 20px; }
@@ -599,20 +634,20 @@ main {
   margin-top: 15px; }
   .form-container__link button.delete {
     padding: 10px 20px 10px 20px;
-    border: 2px solid #000000;
+    border: 2px solid #343434;
     -webkit-border-radius: 10px;
        -moz-border-radius: 10px;
             border-radius: 10px;
     font-size: 15px;
     font-weight: 600;
-    color: #000000;
+    color: #343434;
     background-color: #f9f9f9;
     -webkit-box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.1);
        -moz-box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.1);
             box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.1); }
     .form-container__link button.delete:hover {
       color: white;
-      background-color: #000000; }
+      background-color: #343434; }
 
 .fileUpload {
   width: 100%;
@@ -634,3 +669,66 @@ main {
     font-size: 15px;
     color: #757575;
     padding: 20px 5px 10px 5px; }
+
+.user-profile {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+     -moz-box-orient: vertical;
+     -moz-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column; }
+  .user-profile .user-profile__header {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+       -moz-box-orient: vertical;
+       -moz-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+       -moz-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-bottom: 20px; }
+    .user-profile .user-profile__header .profile__username {
+      margin-top: 10px;
+      font-size: 15px;
+      font-weight: 600; }
+  .user-profile .user-profile__btns {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+       -moz-box-orient: vertical;
+       -moz-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+       -moz-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
+    .user-profile .user-profile__btns a:not(:last-child) {
+      margin-bottom: 15px; }

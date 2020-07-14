@@ -7,8 +7,8 @@ block content
         .video__info
             .info--header
                 h5.video__title=video.title
-                if user
-                    a(href=routes.editVideo(video.id)) 
+                if loggedUser
+                    a(href=routes.editVideo(video.id),class="video__editBtn") 
                         button Edit Video
             if video.views === 1
                 span.video__views 1 view

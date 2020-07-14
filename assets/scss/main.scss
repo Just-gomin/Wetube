@@ -18,3 +18,22 @@ main {
   margin-top: 40px;
   min-height: 70vh;
 }
+
+a {
+  display: flex;
+  justify-self: flex-end;
+  button {
+    all: unset;
+    padding-right: 15px;
+    display: block;
+    padding: 10px 10px 10px 10px;
+    border: 2px solid $comfort-blue;
+    border-radius: 10px;
+    color: $comfort-blue;
+    font-weight: 600;
+    &:hover {
+      background-color: $comfort-blue;
+      color: white;
+    }
+  }
+}
