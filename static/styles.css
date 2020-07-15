@@ -521,6 +521,69 @@ a {
       padding-top: 5px;
       font-size: 15px; }
 
+.videoPlayer {
+  position: relative; }
+  .videoPlayer:hover .videoPlayer__controllers {
+    opacity: 1; }
+  .videoPlayer video {
+    width: 100%;
+    min-width: 430px;
+    max-width: 1000px;
+    height: auto;
+    padding: 0px 10px 0px 10px; }
+  .videoPlayer .videoPlayer__controllers {
+    opacity: 0;
+    -webkit-transition: opacity 0.4s linear;
+    -o-transition: opacity 0.4s linear;
+    -moz-transition: opacity 0.4s linear;
+    transition: opacity 0.4s linear;
+    color: white;
+    position: absolute;
+    z-index: 1;
+    bottom: 5px;
+    left: 2.5%;
+    width: 95%;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 10px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+       -moz-box-orient: horizontal;
+       -moz-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+       -moz-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    font-size: 16px; }
+    .videoPlayer .videoPlayer__controllers .videoPlayer__left__controllers {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: row;
+         -moz-box-orient: horizontal;
+         -moz-box-direction: normal;
+          -ms-flex-direction: row;
+              flex-direction: row; }
+    .videoPlayer .videoPlayer__controllers .videoPlayer__controllers__column i {
+      cursor: pointer; }
+      .videoPlayer .videoPlayer__controllers .videoPlayer__controllers__column i:hover {
+        color: #396ec4; }
+    .videoPlayer .videoPlayer__controllers .videoPlayer__controllers__column:not(:last-child) {
+      margin-left: 5px;
+      margin-right: 10px; }
+
 .home-videos {
   display: grid;
   grid-template-columns: repeat(4, minmax(200px, 1fr));
@@ -551,18 +614,12 @@ a {
      -moz-box-align: center;
       -ms-flex-align: center;
           align-items: center; }
-  .video-detail__container .video__player video {
-    width: 100%;
-    min-width: 430px;
-    max-width: 850px;
-    height: auto;
-    padding: 0px 10px 0px 10px; }
   .video-detail__container .video__info {
     width: 100%;
     padding: 15px 20px 25px 20px;
     margin-top: 10px;
     width: 100%;
-    max-width: 850px;
+    max-width: 1000px;
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;

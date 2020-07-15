@@ -1,9 +1,11 @@
 extends layouts/main
+include mixins/videoPlayer
 
 block content
     .video-detail__container
-        .video__player
-            video(src=`/${video.fileUrl}`, controls=true)
+        +videoPlayer({
+            src:video.fileUrl
+        })
         .video__info
             .info--header
                 .info--header__main
@@ -11,10 +13,9 @@ block content
                     .video__author
                         |Uploaded by
                         a(href=routes.userDetail(video.creator.id))=video.creator.name
-                if loggedUser
-                    if video.creator.id === loggedUser.id
-                        a(href=routes.editVideo(video.id),class="video__editBtn") 
-                            button Edit Video
+                if loggedUser && video.creator.id === loggedUser.id
+                    a(href=routes.editVideo(video.id),class="video__editBtn") 
+                        button Edit Video
             if video.views === 1
                 span.video__views 1 view
             else

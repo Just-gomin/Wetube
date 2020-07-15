@@ -1,0 +1,18 @@
+mixin videoPlayer(video={})
+    .videoPlayer
+        video(src=video.src.match(/http/) ? video.src : `/${video.src}`, control=true)
+        .videoPlayer__controllers
+            .videoPlayer__left__controllers
+                .videoPlayer__controllers__column
+                    span
+                        i.fas.fa-play
+                .videoPlayer__controllers__column
+                    span
+                        i.fas.fa-volume-up
+                .videoPlayer__controllers__column
+                    span
+                        | 00:00 / 10:00
+            .videoPlayer__right__controllers
+                .videoPlayer__controllers__column
+                    sapn
+                        i.fas.fa-expand
