@@ -2,11 +2,7 @@
   position: relative;
   min-width: 430px;
   max-width: 1000px;
-  &:hover {
-    .videoPlayer__controllers {
-      opacity: 1;
-    }
-  }
+
   video {
     width: 100%;
     height: auto;
@@ -28,6 +24,9 @@
     justify-content: space-between;
     align-items: center;
     font-size: 16px;
+    &:hover {
+      opacity: 1;
+    }
     .videoPlayer__left__controllers {
       display: flex;
       flex-direction: row;
