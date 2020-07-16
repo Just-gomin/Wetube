@@ -577,9 +577,12 @@ a {
           -ms-flex-direction: row;
               flex-direction: row; }
     .videoPlayer .videoPlayer__controllers .videoPlayer__controllers__column i {
+      color: rgba(255, 255, 255, 0.6);
       cursor: pointer; }
       .videoPlayer .videoPlayer__controllers .videoPlayer__controllers__column i:hover {
-        color: #396ec4; }
+        color: white; }
+      .videoPlayer .videoPlayer__controllers .videoPlayer__controllers__column i:active {
+        color: rgba(255, 255, 255, 0.8); }
     .videoPlayer .videoPlayer__controllers .videoPlayer__controllers__column:not(:last-child) {
       margin-left: 5px;
       margin-right: 10px; }

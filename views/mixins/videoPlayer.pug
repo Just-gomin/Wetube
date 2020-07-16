@@ -1,10 +1,10 @@
 mixin videoPlayer(video={})
-    .videoPlayer
-        video(src=video.src.match(/http/) ? video.src : `/${video.src}`, control=true)
+    .videoPlayer#jsVideoPlayer
+        video(src=video.src.match(/http/) ? video.src : `/${video.src}`)
         .videoPlayer__controllers
             .videoPlayer__left__controllers
                 .videoPlayer__controllers__column
-                    span
+                    span#jsPlayButton
                         i.fas.fa-play
                 .videoPlayer__controllers__column
                     span
