@@ -10,8 +10,10 @@ mixin videoPlayer(video={})
                     span#jsVolumeButton
                         i.fas.fa-volume-up
                 .videoPlayer__controllers__column
-                    span
-                        | 00:00 / 10:00
+                    div
+                        span#currentTime 00:00:00 
+                        |/ 
+                        span#totalTime 00:00:00
             .videoPlayer__right__controllers
                 .videoPlayer__controllers__column
                     sapn#jsFullScreen
