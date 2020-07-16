@@ -1,5 +1,7 @@
 .videoPlayer {
   position: relative;
+  min-width: 430px;
+  max-width: 1000px;
   &:hover {
     .videoPlayer__controllers {
       opacity: 1;
@@ -7,8 +9,6 @@
   }
   video {
     width: 100%;
-    min-width: 430px;
-    max-width: 1000px;
     height: auto;
     padding: 0px 10px 0px 10px;
   }

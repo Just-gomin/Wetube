@@ -522,13 +522,13 @@ a {
       font-size: 15px; }
 
 .videoPlayer {
-  position: relative; }
+  position: relative;
+  min-width: 430px;
+  max-width: 1000px; }
   .videoPlayer:hover .videoPlayer__controllers {
     opacity: 1; }
   .videoPlayer video {
     width: 100%;
-    min-width: 430px;
-    max-width: 1000px;
     height: auto;
     padding: 0px 10px 0px 10px; }
   .videoPlayer .videoPlayer__controllers {
