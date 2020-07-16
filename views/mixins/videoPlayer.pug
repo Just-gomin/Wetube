@@ -1,18 +1,19 @@
 mixin videoPlayer(video={})
     .videoPlayer#jsVideoPlayer
-        video(src=video.src.match(/http/) ? video.src : `/${video.src}`)
+        video(src=video.src.match(/http/) ? video.src : `/${video.src}`, autoplay=true)
         .videoPlayer__controllers
             .videoPlayer__left__controllers
                 .videoPlayer__controllers__column
                     span#jsPlayButton
-                        i.fas.fa-play
+                        i.fas.fa-pause
                 .videoPlayer__controllers__column
                     span#jsVolumeButton
                         i.fas.fa-volume-up
+                    input.videoPlayer_volumeControl#jsVolume(type="range",min=0,max=1,value=1,step=0.01)
                 .videoPlayer__controllers__column
                     div
                         span#currentTime 00:00:00 
-                        |/ 
+                        |/
                         span#totalTime 00:00:00
             .videoPlayer__right__controllers
                 .videoPlayer__controllers__column

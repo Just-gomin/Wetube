@@ -6,7 +6,7 @@ const fullScreenButton = document.getElementById("jsFullScreen");
 const currentTime = document.getElementById("currentTime");
 const totalTime = document.getElementById("totalTime");
 
-function handlePlayClick() {
+const handlePlayClick = () => {
   if (video.paused) {
     video.play();
     playButton.innerHTML = '<i class="fas fa-pause"></i>';
@@ -14,9 +14,9 @@ function handlePlayClick() {
     video.pause();
     playButton.innerHTML = '<i class="fas fa-play"></i>';
   }
-}
+};
 
-function handleVolumeClick() {
+const handleVolumeClick = () => {
   if (video.muted) {
     video.muted = false;
     volumeButton.innerHTML = '<i class="fas fa-volume-up"></i>';
@@ -24,9 +24,9 @@ function handleVolumeClick() {
     video.muted = true;
     volumeButton.innerHTML = '<i class="fas fa-volume-mute"></i>';
   }
-}
+};
 
-function goSmallScreen() {
+const goSmallScreen = () => {
   if (document.exitFullscreen) {
     document.exitFullscreen();
   } else if (document.mozCancelFullScreen) {
@@ -39,9 +39,9 @@ function goSmallScreen() {
   fullScreenButton.innerHTML = '<i class="fas fa-expand "></i>';
   fullScreenButton.removeEventListener("click", goSmallScreen);
   fullScreenButton.addEventListener("click", goFullScreen);
-}
+};
 
-function goFullScreen() {
+const goFullScreen = () => {
   if (videoContainer.requestFullscreen) {
     videoContainer.requestFullscreen();
   } else if (videoContainer.mozRequestFullScreen) {
@@ -57,7 +57,7 @@ function goFullScreen() {
   fullScreenButton.innerHTML = '<i class="fas fa-compress"></i>';
   fullScreenButton.removeEventListener("click", goFullScreen);
   fullScreenButton.addEventListener("click", goSmallScreen);
-}
+};
 
 const formatDate = (secondsData) => {
   const totalSeconds = parseInt(secondsData, 10);
@@ -71,7 +71,7 @@ const formatDate = (secondsData) => {
 };
 
 const getCurrentTime = () => {
-  currentTime.innerHTML = formatDate(video.currentTime);
+  currentTime.innerHTML = formatDate(Math.floor(video.currentTime));
 };
 
 const setTotalTime = () => {
@@ -79,12 +79,18 @@ const setTotalTime = () => {
   setInterval(getCurrentTime, 1000);
 };
 
-function init() {
+const handleEnded = () => {
+  video.currentTime = 0;
+  playButton.innerHTML = '<i class="fas fa-play"></i>';
+};
+
+const init = () => {
   playButton.addEventListener("click", handlePlayClick);
   volumeButton.addEventListener("click", handleVolumeClick);
   fullScreenButton.addEventListener("click", goFullScreen);
   video.addEventListener("loadedmetadata", setTotalTime);
-}
+  video.addEventListener("ended", handleEnded);
+};
 
 if (videoContainer) {
   init();
