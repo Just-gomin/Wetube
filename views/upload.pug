@@ -4,7 +4,7 @@ block content
     .form-container
         .record-container#jsRecordContainer
             video#jsVideoPreview
-            button#jsRecordButton Start Recording
+            button.button-preRecoding#jsRecordButton Start Recording
         form(action=`/videos${routes.upload}`, method="post", enctype="multipart/form-data")
             .fileUpload
                 label(for="file") Choose File
