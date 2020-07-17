@@ -4,10 +4,15 @@
 
 import express from "express";
 import routes from "../routes";
-import { postRegisterView } from "../controllers/videoControllers";
+import {
+  postRegisterView,
+  postAddComment,
+} from "../controllers/videoControllers";
+import { onlyPrivate } from "../middlewares";
 
 const apiRouter = express.Router();
 
 apiRouter.post(routes.registerView, postRegisterView);
+apiRouter.post(routes.addComment, onlyPrivate, postAddComment);
 
 export default apiRouter;

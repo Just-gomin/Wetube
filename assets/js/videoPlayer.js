@@ -92,14 +92,10 @@ const formatDate = (secondsData) => {
   }:${seconds > 10 ? seconds : `0${seconds}`}`;
 };
 
-// 현재 시청한 시간 표시 및, 일정 수준 이상 시청시 조회수 증가
+// 현재 시청한 시간 표시 및, 30초 이상 시청시 조회수 증가
 const getCurrentTime = () => {
   currentTime.innerHTML = formatDate(Math.floor(video.currentTime));
-  if (parseInt(video.duration, 10) < 30) {
-    if (parseInt(video.duration, 10) - 1 <= parseInt(video.currentTime, 10)) {
-      registerView();
-    }
-  } else if (
+  if (
     parseInt(video.currentTime, 10) >= 30 &&
     parseInt(video.currentTime, 10) < 31
   ) {
@@ -113,10 +109,14 @@ const setTotalTime = () => {
   setInterval(getCurrentTime, 1000);
 };
 
-// 영상 재생이 끝났을 때의 동작
+// 영상 재생이 끝났을 때의 동작, 영상의 길이가 30초 미만일 때 조회수 증가
 const handleEnded = () => {
   video.currentTime = 0;
   playButton.innerHTML = '<i class="fas fa-play"></i>';
+
+  if (parseInt(video.duration, 10) < 30) {
+    registerView();
+  }
 };
 
 // 소리 크기 조작
