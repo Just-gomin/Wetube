@@ -18,11 +18,12 @@ import passport from "passport"; // 사용자 인증을 위한 middleware
 import "./passport"; // passport middleware에 대한 strategies 모음
 
 import { localsMiddleware } from "./middlewares"; // 사용자 정의 middlewares
-// Routers
 
+// Routers
 import globalRouter from "./routers/globalRouter";
 import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
+import apiRouter from "./routers/apiRouter";
 
 // Routes
 import routes from "./routes";
@@ -63,5 +64,6 @@ app.use(localsMiddleware);
 app.use(routes.home, globalRouter);
 app.use(routes.users, userRouter);
 app.use(routes.videos, videoRouter);
+app.use(routes.api, apiRouter);
 
 export default app;
