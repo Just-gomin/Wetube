@@ -3,16 +3,34 @@ const recordButton = document.getElementById("jsRecordButton");
 const videoPreview = document.getElementById("jsVideoPreview");
 
 let streamObject;
+let videoRecorder;
 
 const handleVideoData = (event) => {
-  console.log(event.data);
+  const { data: videoFile } = event;
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(videoFile);
+  link.download = "recorded.webm";
+  document.body.appendChild(link);
+  link.click();
+};
+
+const stopRecording = () => {
+  videoRecorder.stop();
+  recordButton.removeEventListener("click", stopRecording);
+  recordButton.innerHTML = "Start Recording";
+  recordButton.classList.remove("button-inRecoding");
+  recordButton.classList.add("button-preRecoding");
+  recordButton.addEventListener("click", getVideo);
 };
 
 const startRecording = () => {
-  const videoRecorder = new MediaRecorder(streamObject);
-  videoRecorder.ondataavailable = handleVideoData;
+  videoRecorder = new MediaRecorder(streamObject);
   videoRecorder.start();
-  console.log(videoRecorder);
+  videoRecorder.addEventListener("dataavailable", handleVideoData);
+  recordButton.addEventListener("click", stopRecording);
+  recordButton.innerHTML = "Stop recording";
+  recordButton.classList.remove("button-preRecoding");
+  recordButton.classList.add("button-inRecoding");
 };
 
 const getVideo = async () => {
@@ -22,17 +40,14 @@ const getVideo = async () => {
       video: { width: 1280, height: 720 },
     });
     videoPreview.srcObject = stream;
-    videoPreview.play();
     videoPreview.muted = true;
-    recordButton.innerHTML = "Stop recording";
-    recordButton.classList.remove("button-preRecoding");
-    recordButton.classList.add("button-inRecoding");
+    videoPreview.play();
     streamObject = stream;
     startRecording();
   } catch (error) {
     recordButton.innerHTML = "Can't record... 😥";
   } finally {
-    recordButton.removeEventListener("clcick", getVideo);
+    recordButton.removeEventListener("click", getVideo);
   }
 };
 

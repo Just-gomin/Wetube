@@ -723,19 +723,7 @@ a {
   .record-container .button-inRecoding {
     background-color: white;
     border: 2px solid #f22c2c;
-    color: #f22c2c;
-    -webkit-animation-name: blinker;
-       -moz-animation-name: blinker;
-         -o-animation-name: blinker;
-            animation-name: blinker;
-    -webkit-animation-duration: 2s;
-       -moz-animation-duration: 2s;
-         -o-animation-duration: 2s;
-            animation-duration: 2s;
-    -webkit-animation-iteration-count: infinite;
-       -moz-animation-iteration-count: infinite;
-         -o-animation-iteration-count: infinite;
-            animation-iteration-count: infinite; }
+    color: #f22c2c; }
     .record-container .button-inRecoding:hover {
       background-color: #f22c2c;
       color: white; }
