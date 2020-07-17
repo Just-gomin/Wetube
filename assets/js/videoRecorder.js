@@ -55,4 +55,6 @@ const init = () => {
   recordButton.addEventListener("click", getVideo);
 };
 
-init();
+if (recordContainer) {
+  init();
+}
