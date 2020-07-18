@@ -23,11 +23,19 @@ block content
             p.video__description=video.description
         .video__comments
             if video.comments.length === 1
-                span.video__comment-number 1 comment
+                .video__comments-number 1 comment
             else
-                span.video__comment-number #{video.comments.length} comments
-            form.add__Comment#jsAddComment
-                input(type="text", placeholder="Add a comment",name="comment")
-            ul.video_comments-list
+                .video__comments-number #{video.comments.length} comments
+            if loggedUser
+                form.add__comment#jsAddComment
+                    img.comment-user__avatar(src=loggedUser.avatarUrl.match(/http/) ? loggedUser.avatarUrl : `/${loggedUser.avatarUrl}`)
+                    input(type="text", placeholder="Add a comment")
+                    button(type="submit")#jsAddCommentButton
+                        span Comment!
+            ul.video__comments-list
                 each comment in video.comments
-                span comment.text
+                    li
+                        img.comment-user__avatar(src=comment.creator.avatarUrl.match(/http/) ? comment.creator.avatarUrl : `/${comment.creator.avatarUrl}`)
+                        .comment-main
+                            .comment-user__name=comment.creator.name
+                            .comment-text=comment.text
