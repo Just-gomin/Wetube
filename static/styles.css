@@ -904,33 +904,60 @@ a {
          -moz-box-pack: center;
           -ms-flex-pack: center;
               justify-content: center; }
-      .video-detail__container .video__comments .add__comment input[type="text"] {
-        display: block;
-        background: none;
+      .video-detail__container .video__comments .add__comment .add__comment-container {
         width: 100%;
-        font-size: 16px;
-        margin: 10px;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-        color: #343434; }
-      .video-detail__container .video__comments .add__comment button[type="submit"] {
-        all: unset;
-        padding: 10px;
-        -webkit-border-radius: 10px;
-           -moz-border-radius: 10px;
-                border-radius: 10px;
-        font-size: 16px;
-        font-weight: 500;
-        background-color: #396ec4;
-        color: white; }
-        .video-detail__container .video__comments .add__comment button[type="submit"]:hover {
-          background-color: #2c5291; }
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+           -moz-box-orient: vertical;
+           -moz-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column; }
+        .video-detail__container .video__comments .add__comment .add__comment-container .add__comment-user__name {
+          font-size: 16px;
+          margin-left: 10px; }
+        .video-detail__container .video__comments .add__comment .add__comment-container textarea {
+          display: block;
+          background: none;
+          width: 95%;
+          height: 50px;
+          resize: vertical;
+          font-size: 16px;
+          font-weight: 600;
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+          margin: 10px;
+          border: none;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+          outline: none;
+          color: #343434; }
+        .video-detail__container .video__comments .add__comment .add__comment-container button[type="submit"] {
+          all: unset;
+          width: -webkit-fit-content;
+          width: -moz-fit-content;
+          width: fit-content;
+          padding: 10px;
+          -webkit-border-radius: 10px;
+             -moz-border-radius: 10px;
+                  border-radius: 10px;
+          font-size: 16px;
+          font-weight: 500;
+          background-color: #396ec4;
+          color: white;
+          -webkit-align-self: flex-end;
+              -ms-flex-item-align: end;
+                  align-self: flex-end; }
+          .video-detail__container .video__comments .add__comment .add__comment-container button[type="submit"]:hover {
+            background-color: #2c5291; }
     .video-detail__container .video__comments .video__comments-list {
       width: 80%;
       margin-top: 10px; }
       .video-detail__container .video__comments .video__comments-list li {
-        width: -webkit-fit-content;
-        width: -moz-fit-content;
-        width: fit-content;
+        width: 100%;
         display: -webkit-box;
         display: -webkit-flex;
         display: -moz-box;
@@ -971,7 +998,9 @@ a {
                -moz-border-radius: 30px 30px 30px 5px;
                     border-radius: 30px 30px 30px 5px;
             padding: 10px;
-            font-size: 16px; }
+            font-size: 16px;
+            white-space: normal;
+            word-break: break-all; }
         .video-detail__container .video__comments .video__comments-list li:not(:last-child) {
           margin-bottom: 15px; }
     .video-detail__container .video__comments .comment-user__avatar {
