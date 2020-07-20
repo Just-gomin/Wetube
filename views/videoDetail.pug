@@ -35,7 +35,7 @@ block content
                     img.comment-user__avatar(src=loggedUser.avatarUrl.match(/http/) ? loggedUser.avatarUrl : `/${loggedUser.avatarUrl}`)#jsAddCommentUserAvatar
                     .add__comment-container
                         .add__comment-user__name#jsAddCommentUserName=loggedUser.name
-                        textarea(name="comment", placeholder="Add a comment",required)
+                        textarea(name="comment", placeholder="Add a comment",required=true)
                         button(type="submit")#jsAddCommentButton
                             span Comment!
             ul.video__comments-list#jsCommentList

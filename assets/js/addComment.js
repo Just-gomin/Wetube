@@ -59,8 +59,11 @@ const sendComment = async (comment) => {
 // form 에서 submit 했을 때 처리하는 함수
 const handleSubmit = (event) => {
   event.preventDefault();
-  const commentInput = addCommentForm.querySelector("input");
+  const commentInput = addCommentForm.querySelector("textarea");
   const comment = commentInput.value;
+  if (comment[comment.length - 1] === "\n") {
+    comment[comment.length - 1].replace("\n", "");
+  }
   sendComment(comment);
   commentInput.value = "";
 };

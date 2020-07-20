@@ -925,16 +925,21 @@ a {
           display: block;
           background: none;
           width: 95%;
-          height: 50px;
-          resize: vertical;
-          font-size: 16px;
-          font-weight: 600;
-          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+          height: 30px;
+          min-height: 24px;
+          max-height: 320px;
           margin: 10px;
           border: none;
           border-bottom: 1px solid rgba(0, 0, 0, 0.3);
           outline: none;
-          color: #343434; }
+          resize: vertical;
+          font-size: 16px;
+          font-weight: 500;
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+          color: #343434;
+          line-height: 1.5; }
+          .video-detail__container .video__comments .add__comment .add__comment-container textarea:focus {
+            border-bottom: 2px solid #343434; }
         .video-detail__container .video__comments .add__comment .add__comment-container button[type="submit"] {
           all: unset;
           width: -webkit-fit-content;
@@ -994,13 +999,14 @@ a {
             font-size: 16px; }
           .video-detail__container .video__comments .video__comments-list li .comment-main .comment-text {
             background-color: #e6f0ff;
-            -webkit-border-radius: 30px 30px 30px 5px;
-               -moz-border-radius: 30px 30px 30px 5px;
-                    border-radius: 30px 30px 30px 5px;
+            -webkit-border-radius: 20px 20px 20px 5px;
+               -moz-border-radius: 20px 20px 20px 5px;
+                    border-radius: 20px 20px 20px 5px;
             padding: 10px;
             font-size: 16px;
-            white-space: normal;
-            word-break: break-all; }
+            white-space: pre-line;
+            word-break: break-all;
+            line-height: 1.5; }
         .video-detail__container .video__comments .video__comments-list li:not(:last-child) {
           margin-bottom: 15px; }
     .video-detail__container .video__comments .comment-user__avatar {
