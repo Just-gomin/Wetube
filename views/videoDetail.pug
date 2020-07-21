@@ -43,5 +43,9 @@ block content
                     li
                         img.comment-user__avatar(src=comment.creator.avatarUrl.match(/http/) ? comment.creator.avatarUrl : `/${comment.creator.avatarUrl}`)
                         .comment-main
-                            .comment-user__name=comment.creator.name
+                            .comment-header   
+                                .comment-user__name=comment.creator.name
+                                if loggedUser && loggedUser.id === comment.creator.id
+                                    button(name="delCommentBtn",value=comment.id).comment-delete__button#jsDeleteCommentButton
+                                        |Delete
                             .comment-text=comment.text
