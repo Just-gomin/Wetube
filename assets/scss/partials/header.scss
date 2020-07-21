@@ -11,6 +11,7 @@
     grid-template-columns: repeat(3, 1fr);
     align-items: center;
     .header__column {
+      padding: 5px 10px 5px 10px;
       display: flex;
       justify-content: center;
       a {

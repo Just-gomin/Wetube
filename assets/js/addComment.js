@@ -24,15 +24,25 @@ const addComment = (comment) => {
   comment_main.classList.add("comment-main");
   comment_main.innerHTML;
 
+  const comment_header = document.createElement("div");
+  comment_header.classList.add("comment-header");
+
   const user_name = document.createElement("div");
   user_name.classList.add("comment-user__name");
   user_name.innerHTML = commentUserName.innerHTML;
+
+  const comment_delete_button = document.createElement("button");
+  comment_delete_button.classList.add("comment-delete__button");
+  comment_delete_button.setAttribute("id", "jsDeleteCommentButton");
+  comment_delete_button.innerHTML = "Delete";
 
   const comment_text = document.createElement("div");
   comment_text.classList.add("comment-text");
   comment_text.innerHTML = comment;
 
-  comment_main.appendChild(user_name);
+  comment_header.appendChild(user_name);
+  comment_header.appendChild(comment_delete_button);
+  comment_main.appendChild(comment_header);
   comment_main.appendChild(comment_text);
   li.appendChild(image);
   li.appendChild(comment_main);

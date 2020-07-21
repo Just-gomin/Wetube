@@ -202,6 +202,7 @@ a {
         -ms-flex-align: center;
             align-items: center; }
     .header .header__wrapper .header__column {
+      padding: 5px 10px 5px 10px;
       display: -webkit-box;
       display: -webkit-flex;
       display: -moz-box;
@@ -1034,8 +1035,8 @@ a {
         .video-detail__container .video__comments .video__comments-list li:hover #jsDeleteCommentButton {
           opacity: 1; }
     .video-detail__container .video__comments .comment-user__avatar {
-      width: 40px;
-      height: 40px;
+      width: 50px;
+      height: 50px;
       background-image: -webkit-gradient(linear, left top, right bottom, from(#f9d56e), to(#e8505b));
       background-image: -webkit-linear-gradient(top left, #f9d56e, #e8505b);
       background-image: -moz-linear-gradient(top left, #f9d56e, #e8505b);

@@ -39,7 +39,9 @@ const handleDelete = async (event) => {
 };
 
 const init = () => {
-  commentDeleteButton.addEventListener("click", handleDelete);
+  if (commentDeleteButton) {
+    commentDeleteButton.addEventListener("click", handleDelete);
+  }
 };
 
 if (commentList) {
