@@ -6,6 +6,8 @@
   또한 영상 시청시 조회수를 올립니다.
 */
 
+import getBlobDuration from "get-blob-duration";
+
 const videoContainer = document.getElementById("jsVideoPlayer");
 const video = document.querySelector("video");
 const playButton = document.getElementById("jsPlayButton");
@@ -104,8 +106,15 @@ const getCurrentTime = () => {
 };
 
 // 영상의 총길이 표시
-const setTotalTime = () => {
-  totalTime.innerHTML = formatDate(video.duration);
+const setTotalTime = async () => {
+  const blob = await fetch(video.src).then((response) => response.blob());
+  let duration;
+  if (blob) {
+    duration = await getBlobDuration(blob);
+  } else {
+    duration = video.duration;
+  }
+  totalTime.innerHTML = formatDate(duration);
   setInterval(getCurrentTime, 1000);
 };
 
