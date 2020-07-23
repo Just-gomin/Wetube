@@ -3,6 +3,7 @@
 
   DB연결, app의 port 지정 등의 역할을 한다.
 */
+import "@babel/polyfill";
 
 import app from "./app";
 import "./db";

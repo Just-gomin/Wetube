@@ -4,14 +4,20 @@
   "description": "Cloning Youtube with VanillaJS and NodeJS",
   "main": "index.js",
   "scripts": {
-    "dev:server": "nodemon --exec babel-node init.js --delay 2 --ignore './assets/scss'",
-    "dev:assets": "cross-env WEBPACK_ENV=development webpack -w",
-    "build:assets": "cross-env WEBPACK_ENV=production webpack",
-    "tunnel": "lt -h http://serverless.social -p 4000"
+    "dev:server": "nodemon --exec babel-node src\\init.js --delay 2 --ignore './assets\\scss' --ignore 'static'",
+    "dev:assets": "cd src && cross-env WEBPACK_ENV=development webpack -w",
+    "build:assets": "cd src && cross-env WEBPACK_ENV=production webpack",
+    "build:server": "babel src --out-dir build --ignore \"src/assets\",\"src/static\",\"src/webpack.config.js\"",
+    "copyAll": "xcopy src\\static build\\static /e /i /q /y && xcopy src\\views build\\views /e /i /q /y",
+    "build": "npm run build:server && npm run build:assets && npm run copyAll",
+    "prebuild": "del /s /q \"build\"",
+    "tunnel": "lt -h http://serverless.social -p 4000",
+    "start": "node build/init.js"
   },
   "author": "Kangmin AN",
   "license": "ISC",
   "dependencies": {
+    "@babel/cli": "^7.10.5",
     "@babel/core": "^7.10.3",
     "@babel/node": "^7.10.3",
     "@babel/polyfill": "^7.10.4",

@@ -16,6 +16,7 @@ import mongoose from "mongoose";
 import MongoStore from "connect-mongo"; // session을 mongoDB에 저장하기 위한 패키지
 import passport from "passport"; // 사용자 인증을 위한 middleware
 import "./passport"; // passport middleware에 대한 strategies 모음
+import path from "path";
 
 import { localsMiddleware } from "./middlewares"; // 사용자 정의 middlewares
 
@@ -36,11 +37,11 @@ app.use(helmet());
 
 // express app setting
 app.set("view engine", "pug"); // View Engine을 pug로 설정
+app.set("views", path.join(__dirname, "views"));
 
 // middlewares 사용
 app.use(cookieParser());
-app.use("/uploads", express.static("uploads")); // 주어진 Directory에서 파일을 보내주는 middleware.
-app.use("/static", express.static("static"));
+app.use("/static", express.static(path.join(__dirname, "static")));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan("dev"));
