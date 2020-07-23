@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Cloning Youtube with VanillaJS and NodeJS",
   "main": "index.js",
+  "engines": {
+    "node": "12.x"
+  },
   "scripts": {
     "dev:server": "nodemon --exec babel-node src\\init.js --delay 2 --ignore './assets\\scss' --ignore 'static'",
     "dev:assets": "cd src && cross-env WEBPACK_ENV=development webpack -w",
@@ -12,7 +15,8 @@
     "build": "npm run build:server && npm run build:assets && npm run copyAll",
     "prebuild": "del /s /q \"build\"",
     "tunnel": "lt -h http://serverless.social -p 4000",
-    "start": "node build/init.js"
+    "start": "node build/init.js",
+    "prestart": "npm run build"
   },
   "author": "Kangmin AN",
   "license": "ISC",
