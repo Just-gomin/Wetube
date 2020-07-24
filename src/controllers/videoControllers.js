@@ -6,6 +6,7 @@ import routes from "../routes";
 import Video from "../models/Video";
 import User from "../models/User";
 import Comment from "../models/Comment";
+import { s3 } from "../middlewares";
 
 // Home
 export const home = async (req, res) => {
@@ -118,6 +119,20 @@ export const deleteVideo = async (req, res) => {
     if (video.creator.toString() !== req.user.id) {
       throw Error();
     } else {
+      const delVideoName = video.fileUrl.split("/videos/")[1];
+      const deleteParams = {
+        Bucket: "wetubedorakang612",
+        Key: `videos/${delVideoName}`,
+      };
+      await s3
+        .deleteObject(deleteParams, (err, data) => {
+          if (err) {
+            console.log(err, err.stack);
+          } else {
+            console.log(`${data}, Successfully deleted!`);
+          }
+        })
+        .promise();
       const user = await User.findById(req.user.id);
       await Video.findOneAndDelete({ _id: id });
       user.videos.remove(id);

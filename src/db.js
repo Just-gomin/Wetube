@@ -6,16 +6,16 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 dotenv.config();
 
-mongoose.connect(
-  process.env.PRODUCTION
+const mongoURL =
+  process.env.PRODUCTION === "true"
     ? process.env.MONGO_URL_PROD
-    : process.env.MONGO_URL_DEV,
-  {
-    useNewUrlParser: true,
-    useFindAndModify: false,
-    useUnifiedTopology: true,
-  }
-);
+    : process.env.MONGO_URL_DEV;
+
+mongoose.connect(mongoURL, {
+  useNewUrlParser: true,
+  useFindAndModify: false,
+  useUnifiedTopology: true,
+});
 
 const db = mongoose.connection;
 

@@ -8,7 +8,7 @@ import aws from "aws-sdk";
 import routes from "./routes";
 
 // S3 유저와 관련된 것들의 초기화.
-const s3 = new aws.S3({
+export const s3 = new aws.S3({
   accessKeyId: process.env.AWS_ACCESS_KEY,
   secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
   region: "ap-northeast-2",
@@ -19,7 +19,7 @@ const multerVideo = multer({
   storage: multerS3({
     s3: s3,
     acl: "public-read",
-    bucket: "wetubebydorakang612/videos",
+    bucket: "wetubedorakang612/videos",
   }),
 });
 // 프로필 이미지를 AWS의 S3 bucket에 저장합니다.
@@ -27,7 +27,7 @@ const multerAvatar = multer({
   storage: multerS3({
     s3: s3,
     acl: "public-read",
-    bucket: "wetubebydorakang612/avatars",
+    bucket: "wetubedorakang612/avatars",
   }),
 });
 
