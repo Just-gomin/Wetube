@@ -7,9 +7,15 @@
     "node": "12.16.1",
     "npm": "6.14.5"
   },
+  "browserslist": [
+    "defaults",
+    "not IE 11",
+    "not IE_Mob 11",
+    "maintained node versions"
+  ],
   "scripts": {
     "dev:server": "nodemon --exec babel-node src\\init.js --delay 2 --ignore './assets\\scss' --ignore 'static'",
-    "dev:assets": "cd src && webpack -w",
+    "dev:assets": "cd src && cross-env WEBPACK_ENV=development webpack -w",
     "build:assets": "cd src && webpack",
     "build:server": "babel src --out-dir build --ignore \"src/assets\",\"src/static\",\"src/webpack.config.js\"",
     "copyAll": "shx cp -r src/static build/static && shx cp -r src/views build/views",
