@@ -19,7 +19,9 @@ passport.use(
     {
       clientID: process.env.GITHUB_CLIENT_ID,
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
-      callbackURL: `http://localhost:4000${routes.gitHubCallback}`,
+      callbackURL: process.env.PRODUCTION
+        ? ` https://aqueous-ravine-46956.herokuapp.com${routes.gitHubCallback}`
+        : `http://localhost:4000${routes.gitHubCallback}`,
     },
     githubLoginCallback
   )
@@ -30,7 +32,9 @@ passport.use(
     {
       clientID: process.env.KAKAO_CLIENT_ID,
       clientSecret: process.env.KAKAO_CLIENT_SECRET,
-      callbackURL: `http://localhost:4000${routes.kakaoCallback}`,
+      callbackURL: process.env.PRODUCTION
+        ? ` https://aqueous-ravine-46956.herokuapp.com${routes.kakaoCallback}`
+        : `http://localhost:4000${routes.kakaoCallback}`,
     },
     kakaoLoginCallback
   )
@@ -41,7 +45,9 @@ passport.use(
     {
       clientID: process.env.FACEBOOK_APP_ID,
       clientSecret: process.env.FACEBOOK_APP_SECRET,
-      callbackURL: `http://localhost:4000${routes.facebookCallback}`,
+      callbackURL: process.env.PRODUCTION
+        ? ` https://aqueous-ravine-46956.herokuapp.com${routes.facebookCallback}`
+        : `http://localhost:4000${routes.facebookCallback}`,
       profileFields: ["id", "displayName", "photos", "email"],
       scope: ["public_profile", "email"],
     },
