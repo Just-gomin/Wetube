@@ -7,16 +7,17 @@
 import express from "express";
 
 // middlewares
-import morgan from "morgan"; // 모든 연결에 대한 로그를 남겨주는 middleware
-import helmet from "helmet"; // NodeJS의 보안을 높여주는 middleware
-import cookieParser from "cookie-parser"; // 쿠키 분석을 위한 middlewaare
 import bodyParser from "body-parser"; // 요청의 본문을 분석하기 위한 middleware
-import session from "express-session";
+import cookieParser from "cookie-parser"; // 쿠키 분석을 위한 middlewaare
+import flash from "express-flash";
+import helmet from "helmet"; // NodeJS의 보안을 높여주는 middleware
 import mongoose from "mongoose";
 import MongoStore from "connect-mongo"; // session을 mongoDB에 저장하기 위한 패키지
+import morgan from "morgan"; // 모든 연결에 대한 로그를 남겨주는 middleware
 import passport from "passport"; // 사용자 인증을 위한 middleware
 import "./passport"; // passport middleware에 대한 strategies 모음
 import path from "path";
+import session from "express-session";
 
 import { localsMiddleware } from "./middlewares"; // 사용자 정의 middlewares
 
@@ -56,6 +57,8 @@ app.use(
     }),
   })
 );
+app.use(flash());
+
 app.use(passport.initialize());
 app.use(passport.session());
 

@@ -32,6 +32,7 @@ export const search = async (req, res) => {
     });
   } catch (error) {
     console.log(error);
+    req.flash("error", "Can't find videos.");
   }
   res.render("search", {
     pageTitle: "Search",
@@ -49,15 +50,22 @@ export const postUpload = async (req, res) => {
     body: { title, description },
     file: { location },
   } = req;
-  const newVideo = await Video.create({
-    fileUrl: location,
-    title,
-    description,
-    creator: req.user.id,
-  });
-  req.user.videos.push(newVideo.id);
-  req.user.save();
-  res.redirect(routes.videoDetail(newVideo.id));
+  try {
+    const newVideo = await Video.create({
+      fileUrl: location,
+      title,
+      description,
+      creator: req.user.id,
+    });
+    req.user.videos.push(newVideo.id);
+    req.user.save();
+    req.flash("success", "Video uploaded!");
+    res.redirect(routes.videoDetail(newVideo.id));
+  } catch (error) {
+    req.flash("error", "Can't upload, please retry it.");
+    console.log(error);
+    res.redirect(routes.upload);
+  }
 };
 
 // Video Detail
@@ -74,6 +82,7 @@ export const videoDetail = async (req, res) => {
       });
     res.render("videoDetail", { pageTitle: video.title, video });
   } catch (error) {
+    req.flash("error", "Video not found.");
     console.log(error);
     res.redirect(routes.home);
   }
@@ -93,6 +102,8 @@ export const getEditVideo = async (req, res) => {
       res.render("editVideo", { pageTitle: `Edit ${video.title}`, video });
     }
   } catch (error) {
+    req.flash("error", "Can't edit video");
+    console.log(error);
     res.redirect(routes.home);
   }
 };
@@ -103,8 +114,10 @@ export const postEditVideo = async (req, res) => {
   } = req;
   try {
     await Video.findOneAndUpdate({ _id: id }, { title, description });
+    req.flash("success", "Video edited!");
     res.redirect(routes.videoDetail(id));
   } catch (error) {
+    req.flash("error", "Can't edit, please retry it.");
     res.redirect(routes.home);
   }
 };
@@ -117,6 +130,7 @@ export const deleteVideo = async (req, res) => {
   try {
     const video = await Video.findById(id);
     if (video.creator.toString() !== req.user.id) {
+      req.flash("error", "Don't match creator and user.");
       throw Error();
     } else {
       const delVideoName = video.fileUrl.split("/videos/")[1];
@@ -137,8 +151,10 @@ export const deleteVideo = async (req, res) => {
       await Video.findOneAndDelete({ _id: id });
       user.videos.remove(id);
       user.save();
+      req.flash("success", "Video is deleted.");
     }
   } catch (error) {
+    req.flash("error", "Can't delete, please retry it.");
     console.log(error);
   }
   res.redirect(routes.home);
@@ -181,6 +197,7 @@ export const postAddComment = async (req, res) => {
     video.save();
     commenter.save();
   } catch (error) {
+    req.flash("error", "Can't add comment, please retry it.");
     res.status(400);
   } finally {
     res.end();
@@ -205,8 +222,10 @@ export const postDeleteComment = async (req, res) => {
       await Comment.findByIdAndDelete({ _id: commentId });
       video.save();
       creator.save();
+      req.flash("success", "Delete commet!");
     }
   } catch (error) {
+    req.flash("error", "Can't delete comment.");
     console.log(error);
     res.status(400);
   } finally {

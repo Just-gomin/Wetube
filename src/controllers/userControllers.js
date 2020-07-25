@@ -16,6 +16,7 @@ export const postJoin = async (req, res, next) => {
     body: { name, email, password, password2 },
   } = req;
   if (password !== password2) {
+    req.flash("error", "Passwords don't match");
     res.status(400);
     res.render("join", { pageTitle: "Join" });
   } else {
@@ -25,9 +26,11 @@ export const postJoin = async (req, res, next) => {
         email,
       });
       await User.register(user, password);
+      req.flash("success", "Welcome to wetube!");
       next();
     } catch (error) {
       console.log(error);
+      req.flash("error", "Can't join, check your email or password.");
       res.redirect(routes.home);
     }
   }
@@ -40,9 +43,14 @@ export const getLogin = (req, res) => {
 export const postLogin = passport.authenticate("local", {
   failureRedirect: routes.login,
   successRedirect: routes.home,
+  failureFlash: "Can't login, please check your email or password.",
+  successFlash: "Welcome!",
 });
 
-export const githubLogin = passport.authenticate("github");
+export const githubLogin = passport.authenticate("github", {
+  failureFlash: "Can't login, please check your email or password.",
+  successFlash: "Welcome!",
+});
 
 export const githubLoginCallback = async (
   accessToken,
@@ -77,7 +85,10 @@ export const postGitHubLogin = (req, res) => {
   res.redirect(routes.home);
 };
 
-export const kakaoLogin = passport.authenticate("kakao");
+export const kakaoLogin = passport.authenticate("kakao", {
+  failureFlash: "Can't login, please check your email or password.",
+  successFlash: "Welcome!",
+});
 
 export const kakaoLoginCallback = async (
   accessToken,
@@ -118,7 +129,10 @@ export const postKakaoLogin = (req, res) => {
   res.redirect(routes.home);
 };
 
-export const FacebookLogin = passport.authenticate("facebook");
+export const FacebookLogin = passport.authenticate("facebook", {
+  failureFlash: "Can't login, please check your email or password.",
+  successFlash: "Welcome!",
+});
 
 export const FacebookLoginCallback = async (
   accessToken,
@@ -152,6 +166,7 @@ export const FacebookLoginCallback = async (
 export const postFacebookLogin = (req, res) => res.redirect(routes.home);
 
 export const logout = (req, res) => {
+  req.flash("info", `Logged out!`);
   req.logout();
   res.redirect(routes.home);
 };
@@ -169,6 +184,7 @@ export const userDetail = async (req, res) => {
     const user = await User.findById(id).populate("videos");
     res.render("userDetail", { pageTitle: "User Detail", user: user });
   } catch (error) {
+    req.flash("error", "User not found :(");
     console.log(error);
     res.redirect(routes.home);
   }
@@ -189,8 +205,10 @@ export const postEditProfile = async (req, res) => {
       email,
       avatarUrl: file ? file.location : req.user.avatarUrl,
     });
+    req.flash("sucess", "Profile updated!");
     res.redirect(routes.me);
   } catch (error) {
+    req.flash("error", "Can't update your profile. Please retry it.");
     res.redirect("editProfile", { pageTitle: "Edit Profile" });
   }
 };
@@ -205,13 +223,16 @@ export const postChangePassword = async (req, res) => {
   } = req;
   try {
     if (newPassword !== newPassword1) {
+      req.flash("error", "Passwords don't match");
       res.status(400);
       return res.redirect(`/users${routes.changePassword}`);
     } else {
       await req.user.changePassword(oldPassword, newPassword);
       res.redirect(routes.me);
+      req.flash("sucess", "Password is successfully changed!");
     }
   } catch (error) {
+    req.flash("error", "Can't change the password. Please retry it.");
     res.status(400);
     return res.redirect(`/users${routes.changePassword}`);
   }
