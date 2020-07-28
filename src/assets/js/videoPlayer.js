@@ -107,9 +107,9 @@ const getCurrentTime = () => {
 
 // 영상의 총길이 표시
 const setTotalTime = async () => {
-  const blob = await fetch(video.src).then((response) => response.blob());
   let duration;
-  if (blob) {
+  if (!isFinite(video.duration)) {
+    const blob = await fetch(video.src).then((response) => response.blob());
     duration = await getBlobDuration(blob);
   } else {
     duration = video.duration;

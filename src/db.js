@@ -11,6 +11,9 @@ const mongoURL =
     ? process.env.MONGO_URL_PROD
     : process.env.MONGO_URL_DEV;
 
+const dbLocation =
+  process.env.PRODUCTION === "true" ? "Mongo Atlas" : "Local DB";
+
 mongoose.connect(mongoURL, {
   useNewUrlParser: true,
   useFindAndModify: false,
@@ -20,11 +23,11 @@ mongoose.connect(mongoURL, {
 const db = mongoose.connection;
 
 const handleOpen = () => {
-  console.log("✅ Connected to DB.");
+  console.log(`✅ Connected to ${dbLocation}.`);
 };
 
 const handleError = (error) => {
-  console.log(`❌ Error on DB Connection: ${error}`);
+  console.log(`❌ Error on ${dbLocation} Connection: ${error}`);
 };
 
 db.once("open", handleOpen);

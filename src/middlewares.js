@@ -7,6 +7,11 @@ import multerS3 from "multer-s3";
 import aws from "aws-sdk";
 import routes from "./routes";
 
+const bucket =
+  process.env.PRODUCTION === "true"
+    ? "wetubedorakang612"
+    : "devwetubedorakang612";
+
 // S3 유저와 관련된 것들의 초기화.
 export const s3 = new aws.S3({
   accessKeyId: process.env.AWS_ACCESS_KEY,
@@ -19,7 +24,7 @@ const multerVideo = multer({
   storage: multerS3({
     s3: s3,
     acl: "public-read",
-    bucket: "wetubedorakang612/videos",
+    bucket: `${bucket}/videos`,
   }),
 });
 // 프로필 이미지를 AWS의 S3 bucket에 저장합니다.
@@ -27,7 +32,7 @@ const multerAvatar = multer({
   storage: multerS3({
     s3: s3,
     acl: "public-read",
-    bucket: "wetubedorakang612/avatars",
+    bucket: `${bucket}/avatars`,
   }),
 });
 
