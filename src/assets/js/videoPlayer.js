@@ -96,7 +96,9 @@ const formatDate = (secondsData) => {
 
 // 현재 시청한 시간 표시 및, 30초 이상 시청시 조회수 증가
 const getCurrentTime = () => {
-  currentTime.innerHTML = formatDate(Math.floor(video.currentTime));
+  const currentTimeText = formatDate(Math.floor(video.currentTime));
+  currentTime.innerText = currentTimeText;
+  console.log("current time : ", currentTimeText);
   if (
     parseInt(video.currentTime, 10) >= 30 &&
     parseInt(video.currentTime, 10) < 31
@@ -114,7 +116,8 @@ const setTotalTime = async () => {
   } else {
     duration = video.duration;
   }
-  totalTime.innerHTML = formatDate(duration);
+  totalTime.innerText = formatDate(duration);
+  console.log("total time : ", duration);
   setInterval(getCurrentTime, 1000);
 };
 
