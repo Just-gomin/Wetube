@@ -5,39 +5,39 @@
 */
 
 // Global routes
-const HOME = "/";
-const JOIN = "/join";
-const LOGIN = "/login";
-const LOGOUT = "/logout";
-const SEARCH = "/search";
+const HOME = "/"; // Home Page
+const JOIN = "/join"; // 회원 가입
+const LOGIN = "/login"; // 로그인
+const LOGOUT = "/logout"; // 로그아웃
+const SEARCH = "/search"; // 영상 검색
 
 // Users
-const USERS = "/users";
-const USER_DETAIL = "/:id";
-const EDIT_PROFILE = "/edit-profile";
-const CHANGE_PASSWORD = "/change-password";
-const ME = "/me";
+const USERS = "/users"; // 사용자와 관련된 주소
+const USER_DETAIL = "/:id"; // 사용자 Profile
+const EDIT_PROFILE = "/edit-profile"; // 사용자 Profile 수정
+const CHANGE_PASSWORD = "/change-password"; // 사용자의 계정 비밀번호 수정
+const ME = "/me"; // 본인 Profile
 
 // Videos
-const VIDEOS = "/videos";
-const UPLOAD = "/upload";
-const VIDEO_DETAIL = "/:id";
-const EDIT_VIDEO = "/:id/edit";
-const DELETE_VIDEO = "/:id/delete";
+const VIDEOS = "/videos"; // 영상들과 관련된 주소
+const UPLOAD = "/upload"; // Video Upload
+const VIDEO_DETAIL = "/:id"; // Video 시청
+const EDIT_VIDEO = "/:id/edit"; // Video 제목, 상세 설명 수정
+const DELETE_VIDEO = "/:id/delete"; // Video 삭제
 
 // Social Login
-const GITHUB = "/auth/github";
-const GITHUB_CALLBACK = "/auth/github/callback";
-const KAKAO = "/auth/kakao";
-const KAKAO_CALLBACK = "/auth/kakao/callback";
-const FACEBOOK = "/auth/facebook";
-const FACEBOOK_CALLBACK = "/auth/facebook/callback";
+const GITHUB = "/auth/github"; // Github 로그인 요청
+const GITHUB_CALLBACK = "/auth/github/callback"; // Github 로그인 응답
+const KAKAO = "/auth/kakao"; // KakaoTalk 로그인 요청
+const KAKAO_CALLBACK = "/auth/kakao/callback"; // KakaoTalk 로그인 응답
+const FACEBOOK = "/auth/facebook"; // Facebook 로그인 요청
+const FACEBOOK_CALLBACK = "/auth/facebook/callback"; // Facebook 로그인 응답
 
 // API - 서버와 통신하기 위한 URL
-const API = "/api";
-const REGISTER_VIEW = "/:id/view";
-const ADD_COMMENT = "/:id/comment";
-const DELETE_COMMENT = "/:id/comment/delete";
+const API = "/api"; // API와 관련된 주소
+const REGISTER_VIEW = "/:id/view"; // 영상 시청수 증가 처리
+const ADD_COMMENT = "/:id/comment"; // 영상 댓글 추가
+const DELETE_COMMENT = "/:id/comment/delete"; // 영상 댓글 삭제
 
 const routes = {
   home: HOME,

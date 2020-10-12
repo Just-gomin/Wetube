@@ -8,7 +8,7 @@ import User from "../models/User";
 import Comment from "../models/Comment";
 import { s3 } from "../middlewares";
 
-// Home
+// Home 페이지 요청 처리
 export const home = async (req, res) => {
   try {
     const videos = await Video.find({}).sort({ createdAt: -1 });
@@ -19,7 +19,7 @@ export const home = async (req, res) => {
   }
 };
 
-// Search
+// 검색 요청 처리
 export const search = async (req, res) => {
   const {
     query: { term: searchingBy },

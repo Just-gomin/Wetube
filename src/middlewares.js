@@ -2,11 +2,12 @@
   사용자 정의 middleware들을 작성한 파일.
 */
 
-import multer from "multer";
-import multerS3 from "multer-s3";
-import aws from "aws-sdk";
+import multer from "multer"; // 파일 저장을 위한 모듈
+import multerS3 from "multer-s3"; // Amazon Web Service 중 S3에 파일을 저장하기 위한 모듈
+import aws from "aws-sdk"; // Amazon Web Service를 이용하는 코드를 작성하기 위한 도구 모듈
 import routes from "./routes";
 
+// Bucket 지정
 const bucket =
   process.env.PRODUCTION === "true"
     ? "wetubedorakang612"
@@ -27,6 +28,7 @@ const multerVideo = multer({
     bucket: `${bucket}/videos`,
   }),
 });
+
 // 프로필 이미지를 AWS의 S3 bucket에 저장합니다.
 const multerAvatar = multer({
   storage: multerS3({
@@ -48,6 +50,7 @@ export const localsMiddleware = (req, res, next) => {
 export const uploadVideo = multerVideo.single("videoFile");
 export const uploadAvatar = multerAvatar.single("avatar");
 
+// 로그인 하지 않은 사용자들만 사용할 수 있는 부분을 위한 미들웨어입니다.
 export const onlyPublic = (req, res, next) => {
   if (req.user) {
     res.redirect(routes.home);
@@ -56,6 +59,7 @@ export const onlyPublic = (req, res, next) => {
   }
 };
 
+// 로그인 한 사용자들만 사용할 수 있는 부분을 위한 미들웨어입니다.
 export const onlyPrivate = (req, res, next) => {
   if (req.user) {
     next();

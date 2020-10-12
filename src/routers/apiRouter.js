@@ -13,8 +13,8 @@ import { onlyPrivate } from "../middlewares";
 
 const apiRouter = express.Router();
 
-apiRouter.post(routes.registerView, postRegisterView);
-apiRouter.post(routes.addComment, onlyPrivate, postAddComment);
-apiRouter.post(routes.deleteComment, onlyPrivate, postDeleteComment);
+apiRouter.post(routes.registerView, postRegisterView); // 조회수 증가 처리
+apiRouter.post(routes.addComment, onlyPrivate, postAddComment); // 댓글 추가 처리
+apiRouter.post(routes.deleteComment, onlyPrivate, postDeleteComment); //댓글 삭제 처리
 
 export default apiRouter;

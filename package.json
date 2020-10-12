@@ -2,7 +2,7 @@
   "name": "wetube",
   "version": "1.0.0",
   "description": "Cloning Youtube with VanillaJS and NodeJS",
-  "main": "index.js",
+  "main": "init.js",
   "engines": {
     "node": "12.16.1",
     "npm": "6.14.5"

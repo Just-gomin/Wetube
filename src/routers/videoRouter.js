@@ -16,18 +16,14 @@ import { uploadVideo, onlyPrivate } from "../middlewares";
 
 const videoRouter = express.Router();
 
-// Uploads
-videoRouter.get(routes.upload, onlyPrivate, getUpload);
-videoRouter.post(routes.upload, onlyPrivate, uploadVideo, postUpload);
+videoRouter.get(routes.upload, onlyPrivate, getUpload); // Video Upload 페이지 요청
+videoRouter.post(routes.upload, onlyPrivate, uploadVideo, postUpload); // Video Upload 처리
 
-// Video Detail
-videoRouter.get(routes.videoDetail(), videoDetail);
+videoRouter.get(routes.videoDetail(), videoDetail); // Video 시청 및 댓글 페이지.
 
-// Edit Video
-videoRouter.get(routes.editVideo(), onlyPrivate, getEditVideo);
-videoRouter.post(routes.editVideo(), onlyPrivate, postEditVideo);
+videoRouter.get(routes.editVideo(), onlyPrivate, getEditVideo); // Video 수정 페이지 요청
+videoRouter.post(routes.editVideo(), onlyPrivate, postEditVideo); // Video 수정 처리
 
-// Delete Video
-videoRouter.get(routes.deleteVideo(), onlyPrivate, deleteVideo);
+videoRouter.get(routes.deleteVideo(), onlyPrivate, deleteVideo); // Video 삭제 처리
 
 export default videoRouter;
