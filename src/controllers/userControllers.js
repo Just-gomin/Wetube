@@ -116,9 +116,10 @@ export const kakaoLoginCallback = async (
   } = kakao_profile;
   try {
     const user = await User.findOne({ email });
-    console.log("nickname : ", nickname, "profile : ", profile);
+    console.log(nickname, profile);
     if (user) {
       user.kakaoId = id;
+      user.avatarUrl = profile.profile_image_url;
       user.save();
       return done(null, user);
     } else {
@@ -126,7 +127,7 @@ export const kakaoLoginCallback = async (
         email,
         name: username,
         kakaoId: id,
-        // Profile_image 해결
+        avatarUrl: profile.profile_image_url,
       });
       return done(null, newUser);
     }
