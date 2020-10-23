@@ -10,7 +10,7 @@ Cloning Youtube with VanillaJS and NodeJS
 - [x] Search
 - [x] User Detail
 - [x] Edit Profile
-- [ ] Change Password
+- [x] Change Password
 - [x] Upload
 - [x] Video Detail
 - [x] Edit Video
@@ -20,5 +20,5 @@ Cloning Youtube with VanillaJS and NodeJS
 - [x] GitHub
 - [ ] FaceBook
 - [ ] Google
-- [ ] KaKao
+- [x] KaKao
 - [ ] Naver
